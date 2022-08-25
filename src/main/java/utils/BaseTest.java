@@ -1,4 +1,4 @@
-package testScripts;
+package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
-    public ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public void setDriver(WebDriver driver){
         this.driver.set(driver);
@@ -28,7 +28,7 @@ public class BaseTest {
 
     @AfterMethod
     public void cleanupMethod(){
-        this.driver.get().quit();
+        getDriver().quit();
         this.driver.remove();
     }
 
