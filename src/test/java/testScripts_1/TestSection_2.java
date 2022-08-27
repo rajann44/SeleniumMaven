@@ -1,5 +1,6 @@
 package testScripts_1;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BaseTest;
 
@@ -13,6 +14,7 @@ public class TestSection_2 extends BaseTest {
     @Test
     public void test2(){
         getDriver().get("https://duckduckgo.com");
+        Assert.assertTrue(false);
     }
 
     @Test
