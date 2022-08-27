@@ -22,10 +22,10 @@ public class TestSection_1 extends BaseTest {
 
     @Test
     public void test4(){
-        getDriver().get("https://yahoo.com");
+        getDriver().get("https://yandex.com");
     }
 
     @Test
-    public void test5(){ getDriver().get("https://youtube.com"); }
+    public void test5(){ getDriver().get("https://aol.com"); }
 
 }

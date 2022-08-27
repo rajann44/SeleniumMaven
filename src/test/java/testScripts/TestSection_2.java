@@ -26,6 +26,6 @@ public class TestSection_2 extends BaseTest {
     }
 
     @Test
-    public void test5(){ getDriver().get("https://youtube.com"); }
+    public void test5(){ getDriver().get("https://yandex.com"); }
 
 }
