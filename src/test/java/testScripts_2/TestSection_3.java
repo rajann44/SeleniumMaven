@@ -1,4 +1,4 @@
-package testScripts;
+package testScripts_2;
 
 import org.testng.annotations.Test;
 import page.ArticlePage;

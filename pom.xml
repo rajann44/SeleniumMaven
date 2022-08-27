@@ -44,7 +44,8 @@
                 <version>3.0.0-M7</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>runner.xml</suiteXmlFile>
+                        <suiteXmlFile>runnerDirectory/runner1.xml</suiteXmlFile>
+                        <suiteXmlFile>runnerDirectory/runner2.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <parallel>methods</parallel>
                     <threadCount>2</threadCount>

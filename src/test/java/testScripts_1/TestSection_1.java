@@ -1,9 +1,9 @@
-package testScripts;
+package testScripts_1;
 
 import org.testng.annotations.Test;
 import utils.BaseTest;
 
-public class TestSection_2 extends BaseTest {
+public class TestSection_1 extends BaseTest {
 
     @Test
     public void test1(){
@@ -22,10 +22,10 @@ public class TestSection_2 extends BaseTest {
 
     @Test
     public void test4(){
-        getDriver().get("https://yahoo.com");
+        getDriver().get("https://yandex.com");
     }
 
     @Test
-    public void test5(){ getDriver().get("https://yandex.com"); }
+    public void test5(){ getDriver().get("https://aol.com"); }
 
 }
