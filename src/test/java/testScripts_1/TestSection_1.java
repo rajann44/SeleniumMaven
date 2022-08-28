@@ -5,27 +5,25 @@ import utils.BaseTest;
 
 public class TestSection_1 extends BaseTest {
 
-    @Test
-    public void test1(){
-        getDriver().get("https://bing.com");
-    }
+    @Test(groups = "Smoke")
+    public void test1(){ getDriver().get("https://bing.com"); }
 
-    @Test
+    @Test(groups = "Regression")
     public void test2(){
         getDriver().get("https://duckduckgo.com");
     }
 
-    @Test
+    @Test(groups = "Smoke")
     public void test3(){
         getDriver().get("https://google.com");
     }
 
-    @Test
+    @Test(groups = "Regression")
     public void test4(){
         getDriver().get("https://yandex.com");
     }
 
-    @Test
+    @Test(groups = "Smoke")
     public void test5(){ getDriver().get("https://aol.com"); }
 
 }

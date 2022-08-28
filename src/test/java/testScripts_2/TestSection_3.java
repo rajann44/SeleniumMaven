@@ -2,7 +2,7 @@ package testScripts_2;
 
 import org.testng.annotations.Test;
 import page.ArticlePage;
-import page.CommonAction;
+import page.BasePage;
 import page.HomePage;
 import utils.BaseTest;
 
@@ -10,15 +10,15 @@ public class TestSection_3 extends BaseTest {
 
     HomePage homePage;
     ArticlePage articlePage;
-    CommonAction commonAction;
+    BasePage basePage;
 
     @Test
     public void validateWikipediaSearchWorks() {
         homePage = new HomePage(getDriver());
         articlePage = new ArticlePage(getDriver());
-        commonAction = new CommonAction(getDriver());
+        basePage = new BasePage(getDriver());
 
-        commonAction.gotToURL("https://wikipedia.com");
+        basePage.gotToURL("https://wikipedia.com");
         homePage.searchInWikiInputBox("Google");
         articlePage.verifyArticleTitle("Google");
     }

@@ -1,16 +1,18 @@
 package page;
 
+import helper.TestListeners;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pageLocator.ArticleLocator;
 import utils.ElementFetch;
 
-public class ArticlePage {
+public class ArticlePage extends BasePage{
 
     WebDriver driver;
     ElementFetch elementFetch = new ElementFetch();
 
     public ArticlePage(WebDriver driver){
+        super(driver);
         this.driver = driver;
     }
 
