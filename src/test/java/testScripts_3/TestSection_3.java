@@ -12,7 +12,7 @@ public class TestSection_3 extends BaseTest {
     ArticlePage articlePage;
     BasePage basePage;
 
-    @Test
+    @Test(groups = "Smoke")
     public void validateWikipediaSearchWorks() {
         homePage = new HomePage(getDriver());
         articlePage = new ArticlePage(getDriver());

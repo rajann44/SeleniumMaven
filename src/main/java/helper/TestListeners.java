@@ -7,18 +7,16 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import org.testng.IAnnotationTransformer;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.annotations.ITestAnnotation;
 import page.BasePage;
 import utils.BaseTest;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-public class TestListeners implements ITestListener, IAnnotationTransformer {
+public class TestListeners implements ITestListener {
 
     private static ExtentReports extent = ExtentReportManager.createInstance();
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
@@ -64,12 +62,6 @@ public class TestListeners implements ITestListener, IAnnotationTransformer {
         if(extent!=null){
             extent.flush();
         }
-    }
-
-    //Below method handles the RetryAnalyzer Logic
-    @Override
-    public void transform(ITestAnnotation iTestAnnotation, Class aClass, Constructor constructor, Method method){
-        iTestAnnotation.setRetryAnalyzer(RetryAnalyzer.class);
     }
 
 }

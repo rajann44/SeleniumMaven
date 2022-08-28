@@ -4,6 +4,7 @@ import helper.TestListeners;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Parameters;
 
 import java.time.Duration;
 
@@ -11,8 +12,9 @@ import java.time.Duration;
 public class BaseTest extends DriverManager{
 
     @BeforeMethod
-    public void beforeMethod(){
-        setupDriver();
+    @Parameters(value = "browserName")
+    public void beforeMethod(String browserName){
+        setupDriver(browserName);
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 

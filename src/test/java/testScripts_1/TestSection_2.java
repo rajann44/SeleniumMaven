@@ -11,7 +11,7 @@ public class TestSection_2 extends BaseTest {
         getDriver().get("https://bing.com");
     }
 
-    @Test(groups = "Smoke")
+    @Test(groups = "Regression")
     public void test2(){
         getDriver().get("https://duckduckgo.com");
         Assert.assertTrue(false);
