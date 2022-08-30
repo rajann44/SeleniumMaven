@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parallel Test Suite 1" parallel="methods" thread-count="3">
     <test name = "Parallel Tests">
-        <parameter name="browserName" value="headless"></parameter>
+        <parameter name="browserName" value="chrome"></parameter>
         <classes>
             <class name="testScripts_1.TestSection_1"></class>
             <class name="testScripts_1.TestSection_2"></class>
