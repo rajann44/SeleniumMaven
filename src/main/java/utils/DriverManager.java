@@ -17,19 +17,17 @@ public class DriverManager {
     }
 
     public void setupDriver(String browserName){
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-debugging-port=9222");
         switch (browserName){
             case "chrome":
-                //setDriver(WebDriverManager.chromedriver().create());
-                setDriver(WebDriverManager.chromedriver().capabilities(options).create());
+                setDriver(WebDriverManager.chromedriver().create());
                 break;
             case "firefox":
                 setDriver(WebDriverManager.firefoxdriver().create());
                 break;
             case "headless":
                 options.addArguments("--headless");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
                 setDriver(WebDriverManager.chromedriver().capabilities(options).create());
                 break;
             default:
