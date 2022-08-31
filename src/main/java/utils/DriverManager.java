@@ -19,7 +19,7 @@ public class DriverManager {
     public void setupDriver(String browserName){
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        //options.addArguments("--remote-debugging-port=9222");
+        options.addArguments("--remote-debugging-port=9222");
         switch (browserName){
             case "chrome":
                 //setDriver(WebDriverManager.chromedriver().create());
