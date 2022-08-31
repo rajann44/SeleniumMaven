@@ -3,11 +3,13 @@ package utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class DriverManager {
 
     protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-    static ChromeOptions options = new ChromeOptions();
+    static ChromeOptions chromeOptions = new ChromeOptions();
+    static FirefoxOptions firefoxOptions = new FirefoxOptions();
     public void setDriver(WebDriver driver){
         this.driver.set(driver);
     }
@@ -18,17 +20,15 @@ public class DriverManager {
 
     public void setupDriver(String browserName){
         switch (browserName){
-            case "chrome":
-                setDriver(WebDriverManager.chromedriver().create());
-                break;
             case "firefox":
-                setDriver(WebDriverManager.firefoxdriver().create());
+                firefoxOptions.addArguments("--headless");
+                setDriver(WebDriverManager.firefoxdriver().capabilities(firefoxOptions).create());
                 break;
-            case "headless":
-                options.addArguments("--headless");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                setDriver(WebDriverManager.chromedriver().capabilities(options).create());
+            case "chrome":
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                setDriver(WebDriverManager.chromedriver().capabilities(chromeOptions).create());
                 break;
             default:
                 try { throw new Exception("Pass Correct Browser to Run Tests"); }
