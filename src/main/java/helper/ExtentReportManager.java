@@ -34,7 +34,8 @@ public class ExtentReportManager {
 
     public static String getReportName(){
         Date d = new Date();
-        String fileName = "Report_" + d.toString().replace(":","_").replace(" ","_")+".html";
+        //String fileName = "Report_" + d.toString().replace(":","_").replace(" ","_")+".html";
+        String fileName = "index.html";
         return fileName;
     }
 
