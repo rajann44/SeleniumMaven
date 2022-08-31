@@ -11,13 +11,9 @@ import java.time.Duration;
 @Listeners(TestListeners.class)
 public class BaseTest extends DriverManager{
 
-    public static String currentDevice;
-
     @BeforeMethod
-    @Parameters(value = "browserName")
-    public void beforeMethod(String browserName){
-        this.currentDevice = browserName;
-        setupDriver(browserName);
+    public void beforeMethod(){
+        setupDriver();
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 

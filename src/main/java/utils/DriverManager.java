@@ -17,21 +17,11 @@ public class DriverManager {
         return this.driver.get();
     }
 
-    public void setupDriver(String browserName){
-        switch (browserName){
-            case "chrome":
-                chromeOptions.addArguments("--headless");
-                chromeOptions.addArguments("--no-sandbox");
-                chromeOptions.addArguments("--disable-dev-shm-usage");
-                setDriver(WebDriverManager.chromedriver().capabilities(chromeOptions).create());
-                break;
-            case "firefox":
-                setDriver(WebDriverManager.firefoxdriver().create());
-                break;
-            default:
-                try { throw new Exception("Pass Correct Browser to Run Tests"); }
-                catch (Exception e) { throw new RuntimeException(e); }
-        }
+    public void setupDriver(){
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+        setDriver(WebDriverManager.chromedriver().capabilities(chromeOptions).create());
     }
 
 }

@@ -9,13 +9,11 @@ import org.openqa.selenium.interactions.Actions;
 public class BasePage {
 
     WebDriver driver;
-    protected Actions action = new Actions(this.driver);
-    static ThreadLocal<ExtentTest> logger;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
     }
-
+    static ThreadLocal<ExtentTest> logger;
     public static void setLogger(ThreadLocal<ExtentTest> extentTestThreadLocal) {
         logger = extentTestThreadLocal;
     }
@@ -48,6 +46,7 @@ public class BasePage {
      * @throws InterruptedException
      */
     public void dragAndDrop(WebElement element, WebElement toElement) {
+        Actions action = new Actions(this.driver);
         action.dragAndDrop(element, toElement).build().perform();
     }
 
@@ -57,8 +56,7 @@ public class BasePage {
      * @param element
      */
     public void shiftClick(WebElement element) {
-        Actions shiftClick = new Actions(driver);
-        shiftClick.keyDown(Keys.SHIFT).click(element).keyUp(Keys.SHIFT).perform();
+        new Actions(this.driver).keyDown(Keys.SHIFT).click(element).keyUp(Keys.SHIFT).perform();
     }
 
     /**
@@ -68,9 +66,8 @@ public class BasePage {
      * @return WebElement
      */
     public WebElement moveToElement(WebElement element) {
-        new Actions(driver).moveToElement(element).build().perform();
+        new Actions(this.driver).moveToElement(element).build().perform();
         return element;
     }
-
 
 }

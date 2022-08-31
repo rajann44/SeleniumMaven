@@ -2,7 +2,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parallel Test Suite 2" parallel="methods" thread-count="3">
     <test name = "Parallel Tests 1">
-        <parameter name="browserName" value="chrome"/>
         <classes>
             <class name="testScripts_2.TestSection_1"></class>
             <class name="testScripts_2.TestSection_2"></class>
@@ -10,7 +9,6 @@
         </classes>
     </test> <!-- Test -->
     <test name = "Parallel Tests 2">
-        <parameter name="browserName" value="chrome"/>
         <classes>
             <class name="testScripts_3.TestSection_1"></class>
             <class name="testScripts_3.TestSection_2"></class>

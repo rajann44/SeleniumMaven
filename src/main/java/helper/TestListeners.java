@@ -26,7 +26,6 @@ public class TestListeners implements ITestListener {
         ExtentTest test = extent.createTest(result.getTestClass().getName()+" | " + result.getMethod().getMethodName());
         extentTest.set(test);
         extentTest.get().assignCategory(result.getMethod().getGroups());
-        extentTest.get().assignDevice(BaseTest.currentDevice);
         BasePage.setLogger(extentTest);
     }
 
