@@ -1,4 +1,4 @@
-# Multithreading + Distributed Parallel Execution
+# Multithreading + Distributed Parallel Execution:
 
 Run test via CL:<br>
 <code>mvn clean test</code><br>
