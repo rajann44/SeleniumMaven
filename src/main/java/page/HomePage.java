@@ -14,6 +14,7 @@ public class HomePage extends BasePage{
         this.driver = driver;
     }
 
+    //Search on Wiki
     public void searchInWikiInputBox(String query){
         logInfo("Verify Wiki Search Works");
         elementFetch.getWebElement(driver, "ID", HomePageLocator.searchInputBox).click();
