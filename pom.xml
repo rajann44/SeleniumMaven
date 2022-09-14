@@ -53,8 +53,6 @@
                         <suiteXmlFile>runner/runner1.xml</suiteXmlFile>
                         <suiteXmlFile>runner/runner2.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <parallel>methods</parallel>
-                    <threadCount>2</threadCount>
                 </configuration>
             </plugin>
         </plugins>

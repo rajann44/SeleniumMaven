@@ -1,23 +1,23 @@
 package page;
 
-import helper.TestListeners;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import pageLocator.ArticleLocator;
-import utils.ElementFetch;
 
 public class ArticlePage extends BasePage{
 
-    WebDriver driver;
-    ElementFetch elementFetch = new ElementFetch();
-
     public ArticlePage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
+    @FindBy(className="mw-page-title-main")
+    public WebElement articleTitle;
+
     public void verifyArticleTitle(String title) {
-        Assert.assertEquals(elementFetch.getWebElement(driver, "CLASS", ArticleLocator.articleTitle).getText(), title);
+        Assert.assertEquals(articleTitle.getText(), title);
     }
 
 }

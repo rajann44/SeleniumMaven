@@ -1,25 +1,28 @@
 package page;
 
 import org.openqa.selenium.WebDriver;
-import pageLocator.HomePageLocator;
-import utils.ElementFetch;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage{
 
-    WebDriver driver;
-    ElementFetch elementFetch = new ElementFetch();
-
     public HomePage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
+
+    @FindBy(id="searchInput")
+    public WebElement searchInputBox;
+    @FindBy(xpath="//button[@type='submit']")
+    public WebElement searchButton;
 
     //Search on Wiki
     public void searchInWikiInputBox(String query){
         logInfo("Verify Wiki Search Works");
-        elementFetch.getWebElement(driver, "ID", HomePageLocator.searchInputBox).click();
-        elementFetch.getWebElement(driver, "ID", HomePageLocator.searchInputBox).sendKeys(query);
-        elementFetch.getWebElement(driver, "XPATH", HomePageLocator.searchButton).click();
+        clickElement(searchInputBox);
+        sendValuesToElement(searchInputBox,query);
+        clickElement(searchButton);
     }
 
 }
