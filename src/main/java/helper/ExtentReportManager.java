@@ -15,7 +15,6 @@ public class ExtentReportManager {
     public static ExtentReports createInstance(){
         String fileName = getReportName();
         String reportDirectory = System.getProperty("user.dir") + "/reports/";
-        //new File(reportDirectory).mkdirs();
         String path = reportDirectory + fileName;
         ExtentSparkReporter htmlReporter = new ExtentSparkReporter(path);
         htmlReporter.viewConfigurer().viewOrder().as(new ViewName[]{
@@ -33,7 +32,7 @@ public class ExtentReportManager {
     }
 
     public static String getReportName(){
-        Date d = new Date();
+        //Date d = new Date();
         //String fileName = "Report_" + d.toString().replace(":","_").replace(" ","_")+".html";
         String fileName = "index.html";
         return fileName;

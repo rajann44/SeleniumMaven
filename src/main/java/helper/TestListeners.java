@@ -48,10 +48,7 @@ public class TestListeners implements ITestListener {
         String logText = "<b>Test Method " + result.getMethod().getMethodName() + " Failed</b>";
         Markup markup = MarkupHelper.createLabel(logText, ExtentColor.RED);
         extentTest.get().log(Status.FAIL, markup);
-        //Capture Screenshot from web
         ScreenshotHelper.captureScreenshot(((BaseTest)result.getInstance()).getDriver(),result.getMethod().getMethodName());
-        //Add Screenshot to report
-        //extentTest.get().addScreenCaptureFromPath("screenshots/"+result.getMethod().getMethodName()+".png");
         extentTest.get().log(Status.INFO, MediaEntityBuilder.createScreenCaptureFromPath("screenshots/"+result.getMethod().getMethodName()+".png").build());
         extentTest.get().log(Status.INFO, result.getThrowable());
     }
