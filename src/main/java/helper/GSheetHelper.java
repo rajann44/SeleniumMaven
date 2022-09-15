@@ -21,24 +21,25 @@ public class GSheetHelper {
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
                 return response.body();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         }
         return response.body();
     }
 
-    public static String fetchTestDataFromSheet(String keyName) {
-        String responseBody = makeGETRequest("https://docs.google.com/spreadsheets/d/1rGhZhL3LvvRRb4Nijyn2qtwRQvOwLVd6MnyB5Q1j6OQ/gviz/tq?tqx=out:csv");
-        String configLines[] = responseBody.split("\\r?\\n");
+    public static void setTestDataFromSheet(String sheetURL) {
+        String responseBody = makeGETRequest("https://docs.google.com/spreadsheets/d/"+sheetURL+"/gviz/tq?tqx=out:csv");
+        String[] configLines = responseBody.split("\\r?\\n");
         for (String p : configLines) {
             String[] key = p.split(",");
             key[0] = key[0].replace("\"", "");
             key[1] = key[1].replace("\"", "");
             attributes.put(key[0], key[1]);
         }
+    }
+
+    public static String getTestDataFromSheet(String keyName){
         return attributes.get(keyName);
     }
 
