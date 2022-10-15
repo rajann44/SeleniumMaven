@@ -13,7 +13,7 @@ import java.time.Duration;
 @Listeners(TestListeners.class)
 public class BaseTest extends DriverManager{
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void setData(){
         GSheetHelper.setTestDataFromSheet(GSheetKeys.sheetURL);
     }
