@@ -1,6 +1,8 @@
 package page;
 
 import com.aventstack.extentreports.ExtentTest;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -39,13 +41,7 @@ public class BasePage {
      * @param url
      */
     public void gotToURL(String url) {
-        driver.get(url);
-    }
-
-    /**
-     * Navigates to the passed url
-     */
-    public void navigateToTheURL(String url) {
+        logInfo("Navigate to URL: "+url);
         driver.get(url);
     }
 

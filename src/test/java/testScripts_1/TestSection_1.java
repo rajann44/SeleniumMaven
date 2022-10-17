@@ -1,12 +1,16 @@
 package testScripts_1;
 
 import org.testng.annotations.Test;
+import page.ArticlePage;
 import utils.BaseTest;
 
 public class TestSection_1 extends BaseTest {
 
     @Test(groups = "Smoke")
-    public void test1(){ getDriver().get("https://bing.com"); }
+    public void test1(){
+        ArticlePage articlePage = new ArticlePage(getDriver());
+        articlePage.gotToURL("https://bing.com");
+    }
 
     @Test(groups = "Regression")
     public void test2(){
