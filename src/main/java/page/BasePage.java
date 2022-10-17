@@ -1,8 +1,6 @@
 package page;
 
 import com.aventstack.extentreports.ExtentTest;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -41,7 +39,7 @@ public class BasePage {
      * @param url
      */
     public void gotToURL(String url) {
-        logInfo("Navigate to URL: "+url);
+        logInfo("Navigate to URL: " + url);
         driver.get(url);
     }
 
@@ -52,6 +50,7 @@ public class BasePage {
         waitForElementToBeClickable(webElement);
         webElement.click();
     }
+
     public void clickElement(By webElement) {
         waitForElementToBeClickable(driver.findElement(webElement));
         driver.findElement(webElement).click();
@@ -162,13 +161,15 @@ public class BasePage {
 
     /**
      * This method will nap for x sceonds
+     *
      * @param sec
      */
     public void napFor(int sec) {
         int time = sec * 1000;
-        try{
+        try {
             Thread.sleep(time);
-        }catch (Exception exception){}
+        } catch (Exception exception) {
+        }
     }
 
 }

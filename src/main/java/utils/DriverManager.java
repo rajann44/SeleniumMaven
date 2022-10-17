@@ -12,7 +12,6 @@ public class DriverManager {
     public void setDriver(WebDriver driver){
         this.driver.set(driver);
     }
-
     public WebDriver getDriver(){
         return this.driver.get();
     }
