@@ -23,7 +23,7 @@ public class TestListeners implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result){
-        ExtentTest test = extent.createTest(result.getTestClass().getName()+" | " + result.getMethod().getMethodName());
+        ExtentTest test = extent.createTest(result.getMethod().getMethodName()+" | " + result.getTestClass().getName()+" | " + result.getMethod().getDescription());
         extentTest.set(test);
         extentTest.get().assignCategory(result.getMethod().getGroups());
         BasePage.setLogger(extentTest);

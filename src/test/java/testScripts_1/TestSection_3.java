@@ -13,7 +13,7 @@ public class TestSection_3 extends BaseTest {
     HomePage homePage;
     ArticlePage articlePage;
 
-    @Test(groups = "Regression")
+    @Test(groups = "Regression", description = "Validate Wiki Search Works")
     public void validateWikipediaSearchWorks() {
         homePage = new HomePage(getDriver());
         articlePage = new ArticlePage(getDriver());

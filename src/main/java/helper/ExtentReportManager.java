@@ -13,10 +13,9 @@ public class ExtentReportManager {
     private static ExtentReports extent;
 
     public static ExtentReports createInstance(){
-        String fileName = getReportName();
         String reportDirectory = System.getProperty("user.dir") + "/reports/";
-        String path = reportDirectory + fileName;
-        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(path);
+        String reportFilePath = reportDirectory + getReportName();
+        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(reportFilePath);
         htmlReporter.viewConfigurer().viewOrder().as(new ViewName[]{
         ViewName.DASHBOARD,ViewName.TEST,ViewName.EXCEPTION,ViewName.CATEGORY,ViewName.LOG,ViewName.DEVICE});
         htmlReporter.config().setEncoding("utf-8");
