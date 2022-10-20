@@ -1,7 +1,7 @@
 package utils;
 
 import config.GSheetKeys;
-import helper.GSheetHelper;
+import helper.HttpHandler;
 import helper.TestListeners;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +18,7 @@ public class BaseTest extends DriverManager{
     public void setData(){
         consoleLogger.info("********* Automation Execution Started **********");
         consoleLogger.info("BEFORE SUIT: Getting Data from Sheet and setting Keys.....");
-        GSheetHelper.setTestDataFromSheet(GSheetKeys.sheetURL);
+        HttpHandler.setTestDataFromSheet(GSheetKeys.sheetURL);
     }
 
     @BeforeMethod(alwaysRun = true)

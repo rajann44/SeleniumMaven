@@ -51,6 +51,7 @@ public class TestListeners implements ITestListener {
         ScreenshotHelper.captureScreenshot(((BaseTest)result.getInstance()).getDriver(),result.getMethod().getMethodName());
         extentTest.get().log(Status.INFO, MediaEntityBuilder.createScreenCaptureFromPath("screenshots/"+result.getMethod().getMethodName()+".png").build());
         extentTest.get().log(Status.INFO, result.getThrowable());
+        SlackHelper.failedTestList.add(result.getMethod().getMethodName());
     }
 
     @Override
@@ -58,6 +59,11 @@ public class TestListeners implements ITestListener {
         if(extent!=null){
             extent.flush();
         }
+        long min = ((context.getEndDate().getTime() - context.getStartDate().getTime())/1000) / 60;
+        long sec = ((context.getEndDate().getTime() - context.getStartDate().getTime())/1000) % 60;
+        long totalTestNumber = context.getAllTestMethods().length;
+        long failedTestNumber = context.getFailedTests().size();
+        SlackHelper.sendMessageToSlack(min,sec,totalTestNumber,failedTestNumber);
     }
 
 }

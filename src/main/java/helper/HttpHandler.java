@@ -1,5 +1,10 @@
 package helper;
 
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -8,7 +13,7 @@ import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GSheetHelper {
+public class HttpHandler {
 
     static HttpResponse<String> response;
     static Map<String, String> attributes = new HashMap<>();
@@ -26,6 +31,20 @@ public class GSheetHelper {
             }
         }
         return response.body();
+    }
+
+    public static void makePostRequestWithBody(String URL ,String payload) {
+        CloseableHttpClient client = HttpClients.createDefault();
+        HttpPost httpPost = new HttpPost(URL);
+        StringEntity entity = new StringEntity(payload);
+        httpPost.setEntity(entity);
+        httpPost.setHeader("Content-type", "application/json");
+        try {
+            client.execute(httpPost);
+            client.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void setTestDataFromSheet(String sheetURL) {

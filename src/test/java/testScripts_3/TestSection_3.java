@@ -1,10 +1,9 @@
 package testScripts_3;
 
 import config.GSheetKeys;
-import helper.GSheetHelper;
+import helper.HttpHandler;
 import org.testng.annotations.Test;
 import page.ArticlePage;
-import page.BasePage;
 import page.HomePage;
 import utils.BaseTest;
 
@@ -18,7 +17,7 @@ public class TestSection_3 extends BaseTest {
         homePage = new HomePage(getDriver());
         articlePage = new ArticlePage(getDriver());
 
-        homePage.gotToURL(GSheetHelper.getTestDataFromSheet(GSheetKeys.wikiURL));
+        homePage.gotToURL(HttpHandler.getTestDataFromSheet(GSheetKeys.wikiURL));
         homePage.searchInWikiInputBox("Google");
         articlePage.verifyArticleTitle("Google");
     }
