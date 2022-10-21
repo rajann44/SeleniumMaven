@@ -7,14 +7,12 @@ import java.util.ArrayList;
 
 public class SlackHelper {
 
-    static String jsonString="";
-
     static ArrayList<String> failedTestList = new ArrayList<>();//Populating the list from onTestFailure TestListeners
 
     public static String testResultOutputAndReturnLongOP(){
+        String jsonString = "";
         for (String str : failedTestList) {
-            // New line added after each test method name.
-            jsonString = jsonString + str + "\\n";
+            jsonString = jsonString + str + "\\n";// New line added after each test method name.
         }
         return jsonString;
     }
