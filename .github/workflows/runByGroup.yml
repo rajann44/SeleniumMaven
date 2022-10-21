@@ -32,7 +32,7 @@ jobs:
         ./scripts/InstallChrome.sh
         
     - name: Run Regression Grouped Tests
-      run: mvn clean test -DsuiteXmlFile=runner1.xml
+      run: mvn clean test -Dgroups=Regression
       if: always()
       
     - name: Deploy Pages
