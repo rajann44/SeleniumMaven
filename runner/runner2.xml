@@ -15,4 +15,9 @@
             <class name="testScripts_3.TestSection_3"></class>
         </classes>
     </test> <!-- Test -->
+    <test name="Pkg EG.">
+        <packages>
+            <package name="testScripts_1"></package>
+        </packages>
+    </test>
 </suite> <!-- Suite -->

@@ -7,8 +7,5 @@
                 <include name="Regression"></include>
             </run>
         </groups>
-        <packages>
-            <package name="testScripts_1"></package>
-        </packages>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
