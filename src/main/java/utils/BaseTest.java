@@ -14,7 +14,7 @@ public class BaseTest extends DriverManager{
 
     protected Logger consoleLogger = LogManager.getLogger();
 
-    @BeforeSuite(alwaysRun = true)
+    @BeforeTest(alwaysRun = true)
     public void setData(){
         consoleLogger.info("********* Automation Execution Started **********");
         consoleLogger.info("BEFORE SUIT: Getting Data from Sheet and setting Keys.....");
@@ -28,14 +28,14 @@ public class BaseTest extends DriverManager{
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void cleanupMethod(){
         consoleLogger.info("AFTER METHOD: Quit Driver and Destroy Driver Thread.....");
         getDriver().quit();
         this.driver.remove();
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterTest(alwaysRun = true)
     public void cleanup(){
         consoleLogger.info("********* Automation Execution Completed **********");
     }
