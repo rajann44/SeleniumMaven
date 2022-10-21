@@ -31,7 +31,7 @@ public class BaseTest extends DriverManager{
     @AfterSuite(alwaysRun = true)
     public void cleanupMethod(){
         consoleLogger.info("AFTER METHOD: Quit Driver and Destroy Driver Thread.....");
-        getDriver().quit();
+        if(getDriver()!=null){getDriver().quit();}
         this.driver.remove();
     }
 
