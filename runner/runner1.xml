@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Parallel Test Suite 1" parallel="methods" thread-count="2">
-    <test name = "Parallel Tests">
+    <test name = "Parallel Tests" group-by-instances="true">
         <groups>
             <run>
                 <include name="Regression"></include>
-                <exclude name="Smoke"></exclude>
             </run>
         </groups>
+        <packages>
+            <package name="testScripts_1"/>
+            <package name="testScripts_2"/>
+            <package name="testScripts_3"/>
+        </packages>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
