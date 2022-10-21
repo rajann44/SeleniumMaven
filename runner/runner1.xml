@@ -5,6 +5,7 @@
         <groups>
             <run>
                 <include name="Regression"></include>
+                <exclude name="Smoke"></exclude>
             </run>
         </groups>
     </test> <!-- Test -->
