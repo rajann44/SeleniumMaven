@@ -8,11 +8,9 @@
                 <include name="Smoke"></include>
             </run>
         </groups>
-        <classes>
-            <class name="testScripts_1.TestSection_1"/>
-            <class name="testScripts_1.TestSection_2"/>
-            <class name="testScripts_1.TestSection_3"/>
-        </classes>
+        <packages>
+            <package name="testScripts_1"/>
+        </packages>
     </test> <!-- Test -->
 
 </suite> <!-- Suite -->
