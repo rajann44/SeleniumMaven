@@ -4,8 +4,13 @@
     <test name = "Parallel Tests">
         <groups>
             <run>
-                <include name="Regression"></include>
+                <include name="Smoke"></include>
             </run>
         </groups>
+        <classes>
+            <class name="testScripts_1.TestSection_1"/>
+            <class name="testScripts_1.TestSection_2"/>
+            <class name="testScripts_1.TestSection_3"/>
+        </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
