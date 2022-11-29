@@ -28,9 +28,9 @@ public class BaseTest extends DriverManager{
         getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void cleanupMethod(){
-        consoleLogger.info("AFTER METHOD: Quit Driver and Destroy Driver Thread.....");
+        consoleLogger.info("AFTER SUITE: Quit Driver and Destroy Driver Thread.....");
         if(getDriver()!=null){getDriver().quit();}
         this.driver.remove();
     }

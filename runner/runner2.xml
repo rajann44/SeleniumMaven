@@ -15,7 +15,7 @@
             <class name="testScripts_3.TestSection_3"></class>
         </classes>
     </test> <!-- Test -->
-    <test name="Pkg EG.">
+    <test name="Last One">
         <packages>
             <package name="testScripts_1"></package>
         </packages>
