@@ -23,9 +23,8 @@ public class BaseTest extends DriverManager{
 
     @BeforeMethod(alwaysRun = true)
     public void setupMethod(){
-        consoleLogger.info("BEFORE METHOD: Setup Driver and Implicit Wait.....");
+        consoleLogger.info("BEFORE METHOD: Setup Driver");
         setupDriver();
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @AfterMethod(alwaysRun = true)
